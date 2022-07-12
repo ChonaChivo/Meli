@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.9.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'idea'
+}
+
+group = 'meli'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+configurations {
+	all*.exclude module : 'spring-boot-starter-logging'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+	//swagger
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	compileOnly 'org.projectlombok:lombok'
+	implementation 'com.google.guava:guava:28.1-jre'
+	annotationProcessor 'org.projectlombok:lombok'
+
+//	classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE'
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
